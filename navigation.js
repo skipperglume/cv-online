@@ -1,6 +1,6 @@
 const createNavigationMenu = () => {
     // Get all subpages/sections (dummy data for demonstration, replace with actual sections)
-    const sections = ['Home', 'About', 'Services', 'Contact'];
+    const sections = ['About', 'Main work', 'Hobbies', 'Contact'];
 
     // Create a navigation menu element
     const nav = document.createElement('nav');
