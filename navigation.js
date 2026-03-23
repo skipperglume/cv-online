@@ -1,5 +1,5 @@
 const createNavigationMenu = () => {
-    // Get all subpages/sections (dummy data for demonstration, replace with actual sections)
+    // Get all subpages/sections
     const sections = ['About', 'Main work', 'Hobbies', 'Contact'];
 
     // Create a navigation menu element
@@ -10,7 +10,11 @@ const createNavigationMenu = () => {
     sections.forEach(section => {
         const li = document.createElement('li');
         const a = document.createElement('a');
-        a.href = `#${section.toLowerCase()}`; // Assuming sections are linked by ID
+        if (section === 'About') {
+            a.href = 'index.html';
+        } else {
+            a.href = section.toLowerCase().replace(' ', '-') + '.html';
+        }
         a.textContent = section;
         li.appendChild(a);
         ul.appendChild(li);
