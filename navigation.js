@@ -24,7 +24,7 @@ const createNavigationMenu = () => {
     nav.appendChild(ul);
 
     // Append the navigation menu to the body (or a specific container)
-    document.body.appendChild(nav);
+    document.body.insertBefore(nav, document.body.firstChild);
 };
 
 // Call the function to create the menu
