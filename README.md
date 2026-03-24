@@ -1,4 +1,6 @@
 
+[![Check HTML files presence](https://github.com/skipperglume/cv-online/actions/workflows/check-index-html.yml/badge.svg)](https://github.com/skipperglume/cv-online/actions/workflows/check-index-html.yml)
+
 [Online CV](https://skipperglume.github.io/cv-online/)
 
 Several pages:
