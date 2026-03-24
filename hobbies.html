@@ -14,17 +14,17 @@
         .clear { clear: both; }
         #page-wrap { width: 800px; margin: 40px auto 60px; }
         #pic { float: right; margin: -30px 0 0 0; }
-        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; color: black;}
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; color: black;}
         h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
         p { margin: 0 0 16px 0; }
-        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; color: blue;}
         a:hover { border-bottom-style: solid; color: black; }
         ul { margin: 0 0 32px 17px; }
         #objective { width: 500px; float: left; }
         #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
-        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
-        dd { width: 600px; float: right; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  color: black;}
+        dd { width: 600px; float: right; color: black;}
         dd.clear { float: none; margin: 0; height: 15px; }
         nav { background-color: #f0f0f0; padding: 10px; margin-bottom: 20px; }
         nav ul { list-style-type: none; margin: 0; padding: 0; }
@@ -41,20 +41,27 @@
         <dl>
             <dd class="clear"></dd>
             
-            <dt>Hobbies</dt>
+            <dt>General</dt>
             <dd>Learning lanugages, Arduino, travelling</dd>
             
             <dd class="clear"></dd>
         </dl>
-        
+        <dl>
+            <dd class="clear"></dd>
+            <dt>Applied Machine Learning models and using outputs together with classical tracking algorithms</dt>
+            <dd>    
+
+            <div class="clear"></div>
+            <img src="images/tracked_output.gif" alt="Tracked output" style="max-width: 30%; height: auto;" />
+            <p style="font-size: 0.9em; color: #666; margin-top: 8px;"><a href="https://github.com/skipperglume/tracking_objs">A hobby project: tracking cars</a>. Uses pre-trained <a href="https://docs.ultralytics.com/models/">YOLO</a> ML models that can identify 80 different classes. Speed is determined from a simple consideration that car size is proportinal to 4 meters. The purple lines are determined from Kalman Filter and predict the future position of a specific car. </p>
+            
+        </dd>
+        </dl>
         <div class="clear"></div>
     </div>
 
-    <!-- Tracked output -->
-    <div style="text-align: center; margin-top: 20px;">
-        <img src="images/tracked_output.gif" alt="Tracked output" style="max-width: 30%; height: auto;" />
-        <p style="font-size: 0.9em; color: #666; margin-top: 8px;"><a href="https://github.com/skipperglume/tracking_objs">A hobby project: tracking cars</a>. Uses pre-trained <a href="https://docs.ultralytics.com/models/">YOLO</a> ML models that can identify 80 different classes. Speed is determined from a simple consideration that car size is proportinal to 4 meters. The purple lines are determined from Kalman Filter and predict the future position of a specific car. </p>
-    </div>  
+    
+    <dd class="clear"></dd>
 
 
 </body>
