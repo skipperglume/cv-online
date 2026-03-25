@@ -1,8 +1,8 @@
 
 [![Check HTML files presence](https://github.com/skipperglume/cv-online/actions/workflows/check-index-html.yml/badge.svg)](https://github.com/skipperglume/cv-online/actions/workflows/check-index-html.yml)
 
-[Online CV Github Pages](https://skipperglume.github.io/cv-online/)
-[Online CV CERN web](https://dentimoshyn-cv.web.cern.ch/index.html)
+ - [Online CV Github Pages](https://skipperglume.github.io/cv-online/)
+ - [Online CV CERN web](https://dentimoshyn-cv.web.cern.ch/index.html)
 
 
 Several pages:
