@@ -1,0 +1,10 @@
+
+Your homepage should immediately show:
+“ML engineer with physics background specializing in classification and anomaly detection”
+
+
+Each should answer:
+Avoid academic tone—translate your PhD work into:
+problem
+what you did
+result
