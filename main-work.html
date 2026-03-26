@@ -5,6 +5,12 @@
 
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta name="description" content="Research work of Denys Timoshyn - Four-top-quark production, jet definitions, and machine learning in particle physics at ATLAS." />
+     <meta name="keywords" content="four-top-quark, ATLAS, CERN, particle physics, machine learning, jet, Denys Timoshyn, research" />
+     <meta property="og:title" content="Main Work - Denys Timoshyn" />
+     <meta property="og:description" content="Four-top-quark production and particle physics research at ATLAS" />
+     <meta property="og:type" content="website" />
 
      <title>Main Work - Denys Timoshyn</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1" />
@@ -36,7 +42,22 @@
         .carousel-image { width: 100%; border: 1px solid #999; }
         .carousel-controls { margin-top: 8px; }
         .carousel-controls button { padding: 4px 12px; margin-right: 8px; cursor: pointer; }
-        .carousel-caption { font-size: 0.9em; color: #666; margin-top: 8px; }
+        .carousel-caption { font-size: 0.9em; color: black; margin-top: 8px; }
+        img + p { 
+            position: relative;
+            padding-left: 20px;
+            margin-left: 0;
+        }
+        img + p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ff6f00;
+        }
      </style>
      <script>
      MathJax = {
@@ -60,38 +81,47 @@
         <h1>Main Work</h1>
         <dl>
             <dd class="clear"></dd>
-            <dt>Four-top-quark production cross-section</dt>
+            <dt>Four-top-quark production cross-section measurement</dt>
             <dd>
-            <img src="images/ATLAS/diagrams.png" alt="Represetnative event reconstruction" width="70%" />
-            <p style="font-size: 0.9em; color: #666; margin-top: 8px;">Represetnative Faynman diagrams of four-top-quark production at leading order. </p>
+            <img src="images/ATLAS/diagrams.png" alt="FeynmanDiagrams" width="70%" />
+            <p>Representative Feynman diagrams of four-top-quark production at leading order.</p>
             
             </dd>
             <dd class="clear"></dd>
             
             <dt>All-hadronic four-top-quark production</dt>
             <dd>
-                <h2>Developping main framework basing on underlying event reconstruction and event classification</h2>
+                <h2>Developing main framework basing on underlying event reconstruction</h2>
+                <!-- <h2>Developing main framework basing on underlying event reconstruction and event classification</h2> -->
                 <p>
-                    The first goal is to reconstruct the four-top-quark production in the all-hadronic decay channel, which is challenging due to the high multiplicity of jets. This issue is solved by 
+                    The goal is to reconstruct the four-top-quark production in the all-hadronic decay channel, which is challenging due to the high multiplicity of jets. SPANet model is used to reconstruct the underlying event and compared to the simplified $\chi^2$ method.
 
-                    The second goal is to optimize the sensitivity of the measurement by applyng robust event classification.
+                    <!-- The second goal is to optimize the sensitivity of the measurement by applyng robust event classification. -->
                     
 
                 </p>
 
                 <img src="images/ATLAS/ReconstructionDisplay_0.png" alt="Represetnative event reconstruction" width="70%" />
-                <p style="font-size: 0.9em; color: #666; margin-top: 8px;">Represetnative event reconstruction. </p>
+                <p> Simplified view on event reconstruction. </p>
+
+                <!-- <img src="images/ATLAS/ReconstructionTask.png" alt="Represetnative event reconstruction" width="70%" />
+                <p>Task definition.</p> -->
+                
+                <img src="images/ATLAS/trainingSpanet.png" alt="Represetnative event reconstruction" width="70%" />
+                <p > Training SPANet model over several session - visible colored stitches. Model seems to plateau at the end of training.</p>
+
+
                 <div style="display: flex; gap: 16px; margin-top: 16px;">
                     <div style="flex: 1;">
                         <img src="images/ATLAS/topMassComparison_year15+16__tttt_truth_08-11-2024.png" alt="Reconstructed top-quark mass comparison" width="100%" />
-                        <p style="font-size: 0.9em; color: #666; margin-top: 8px;">Reconstructed top-quark mass comparison performance.</p>
+                        <p>Reconstructed top-quark mass.</p>
                     </div>
                     <div style="flex: 1;">
                         <img src="images/ATLAS/DR_Comparison_year15+16__tttt_truth_04-11-2024.png" alt="DR Comparison" width="100%" />
-                        <p style="font-size: 0.9em; color: #666; margin-top: 8px;">&#916;R comparison performance.</p>
+                        <p>Angular difference between true and reconstructed top-quarks.</p>
                     </div>
                 </div>
-                
+                <p>Performance comparison between the parton level matching information, simplified $\chi^2$ method and SPANet.</p>
             </dd>
             
             <dd class="clear"></dd>
@@ -100,7 +130,7 @@
             <dd>
                 <h2>Optimization studies concerning forward jets and developping the framework involving Machine Learning transformer-based model </h2>
                 <img src="images/ATLAS/flowChart_SSML.png" alt="SSML Flow Chart" width="70%" />
-                <p style="font-size: 0.9em; color: #666; margin-top: 8px;">Framework flow chart describing the iterative process of ML optimization. </p>
+                <p>Framework flow chart describing the iterative process of ML optimization. </p>
                 
             </dd>
             
@@ -108,7 +138,7 @@
             
             <dt>Jet Definitions and MCJES</dt>
             <dd>
-                <h2>Deriving jet pT residual </h2>
+                <h2>Deriving jet $\pT$ residual pileup dependece for different jet definitions </h2>
                 <div class="carousel" id="mcjes-carousel">
                     <img class="carousel-image" id="mcjes-carousel-image" src="images/ATLAS/jetdef/diff_eta_1_pt_10_zx8.png" alt="Two-dimensional distribution of the residual jet transverse momentum $\Delta \pT = \pTreco - \pTtrue$ as a function of $\mu$ " />
                     <div class="carousel-controls">
@@ -125,6 +155,15 @@
         
         <div class="clear"></div>
     </div>
+
+    <script type="text/javascript">
+        // Force MathJax to process the page after all content is loaded
+        if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise().catch(function(err) {
+                console.log('MathJax processing error:', err);
+            });
+        }
+    </script>
 
     <script type="text/javascript">
         (function () {
