@@ -37,6 +37,19 @@
         .carousel-controls button { padding: 4px 12px; margin-right: 8px; cursor: pointer; }
         .carousel-caption { font-size: 0.9em; color: #666; margin-top: 8px; }
      </style>
+     <script>
+     MathJax = {
+         tex: {
+             inlineMath: [['$', '$']],
+             macros: {
+                 pT:     'p_{\\mathrm{T}}',
+                 pTreco: 'p_{\\mathrm{T}}^{\\mathrm{reco}}',
+                 pTtrue: 'p_{\\mathrm{T}}^{\\mathrm{true}}'
+             }
+         }
+     };
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 <body>
@@ -96,7 +109,7 @@
                         <button type="button" id="mcjes-next">Next</button>
                         <span id="mcjes-index">1/5</span>
                     </div>
-                    <p class="carousel-caption" id="mcjes-caption">Residual derivation workflow for MCJES.</p>
+                    <p class="carousel-caption" id="mcjes-caption">Two-dimensional distribution of the residual jet transverse momentum $\Delta \pT = \pTreco - \pTtrue$ as a function of $\mu$.</p>
                 </div>
             </dd>
             
@@ -117,22 +130,22 @@
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_8_pt_9_zx10_mean.png',
                     alt: 'Inclusive signal region ratio before fit',
-                    caption: 'Inclusive signal region ratio before fit.'
+                    caption: 'Mean $\Delta p_{\mathrm{T}}$ extracted in bins of $\mu$ for the same $(\eta,\,p_{\mathrm{T}})$ bin.  A linear fit (red line) is performed to quantify the slope  $\partial \Delta \pT / \partial \mu$, which defines the $\mu$-dependent residual correction coefficient.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_14_pt_3_zx0_mean_myfit_par1.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'Inclusive signal region ratio after fit.'
+                    caption: 'Slopes obtained for different \Npv slices and averaged to determine a stable correction factor for the given $(\eta,\,\pT)$ bin.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'Inclusive signal region ratio after fit.'
+                    caption: 'The extracted slope $\beta$ (or $p_1$) as a function of \pTtrue for a fixed $\eta$ bin. A logarithmic fit (red line) is applied to smooth the correction and interpolate between the discrete \pT points.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0_myfit_par1.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'Inclusive signal region ratio after fit.'
+                    caption: 'Distribution (function, dependence) of the fitted slope parameter $p_1$ across the full detector occupancy ($\eta$ range). The red curve represents the final smoothed mapping used to derive the 1D residual pileup correction factors.'
                 },
             ];
 
@@ -151,8 +164,14 @@
                 var slide = slides[index];
                 imageElement.src = slide.src;
                 imageElement.alt = slide.alt;
+                captionElement.innerHTML = '';
                 captionElement.textContent = slide.caption;
                 indexElement.textContent = (index + 1) + '/' + slides.length;
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise([captionElement]).catch(function(err) {
+                        console.log('MathJax error:', err);
+                    });
+                }
             };
 
             prevButton.addEventListener('click', function () {
