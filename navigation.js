@@ -27,7 +27,7 @@ const createNavigationMenu = () => {
     document.body.insertBefore(nav, document.body.firstChild);
 };
 
-const decodeEmail = (codes) => String.fromCharCode(...codes);
+const decodeText = (codes) => String.fromCharCode(...codes);
 
 // Replace the obfuscated placeholder text in the HTML with real email links.
 //
@@ -54,15 +54,33 @@ const hydrateEmailLinks = () => {
             return;
         }
 
-        const emailAddress = decodeEmail(encodedEmail);
+        const emailAddress = decodeText(encodedEmail);
         link.href = `mailto:${emailAddress}`;
         link.textContent = emailAddress;
+    });
+};
+
+const hydratePhoneNumbers = () => {
+    const phoneNumbers = {
+        primary: [43, 52, 50, 48, 45, 55, 55, 54, 45, 52, 55, 52, 45, 57, 50, 49]
+    };
+
+    document.querySelectorAll('[data-phone-key]').forEach((phoneElement) => {
+        const phoneKey = phoneElement.getAttribute('data-phone-key');
+        const encodedPhone = phoneNumbers[phoneKey];
+
+        if (!encodedPhone) {
+            return;
+        }
+
+        phoneElement.textContent = decodeText(encodedPhone);
     });
 };
 
 const initializePage = () => {
     createNavigationMenu();
     hydrateEmailLinks();
+    hydratePhoneNumbers();
 };
 
 // The script is loaded near the top of the body, before the email links exist in
