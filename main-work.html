@@ -7,6 +7,7 @@
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
      <title>Main Work - Denys Timoshyn</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1" />
 
      <style type="text/css">
         * { margin: 0; padding: 0; }
@@ -42,6 +43,7 @@
          tex: {
              inlineMath: [['$', '$']],
              macros: {
+                 Npv:   'N_{\\mathrm{PV}}',
                  pT:     'p_{\\mathrm{T}}',
                  pTreco: 'p_{\\mathrm{T}}^{\\mathrm{reco}}',
                  pTtrue: 'p_{\\mathrm{T}}^{\\mathrm{true}}'
@@ -125,27 +127,27 @@
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_1_pt_10_zx8.png',
                     alt: 'Jet residual derivation scheme',
-                    caption: 'Two-dimensional distribution of the residual jet transverse momentum $\Delta \pT = \pTreco - \pTtrue$ as a function of $\mu$.'
+                    caption: 'Two-dimensional distribution of the residual jet transverse momentum $\\Delta \\pT = \\pTreco - \\pTtrue$ as a function of $\\mu$.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_8_pt_9_zx10_mean.png',
                     alt: 'Inclusive signal region ratio before fit',
-                    caption: 'Mean $\Delta p_{\mathrm{T}}$ extracted in bins of $\mu$ for the same $(\eta,\,p_{\mathrm{T}})$ bin.  A linear fit (red line) is performed to quantify the slope  $\partial \Delta \pT / \partial \mu$, which defines the $\mu$-dependent residual correction coefficient.'
+                    caption: 'Mean $\\Delta \\pT$ extracted in bins of $\\mu$ for the same $(\\eta,\\,\\pT)$ bin.  A linear fit (red line) is performed to quantify the slope  $\\partial \\Delta \\pT / \\partial \\mu$, which defines the $\\mu$-dependent residual correction coefficient.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_14_pt_3_zx0_mean_myfit_par1.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'Slopes obtained for different \Npv slices and averaged to determine a stable correction factor for the given $(\eta,\,\pT)$ bin.'
+                    caption: 'Slopes obtained for different $\\Npv$ slices and averaged to determine a stable correction factor for the given $(\\eta,\\,\\pT)$ bin.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'The extracted slope $\beta$ (or $p_1$) as a function of \pTtrue for a fixed $\eta$ bin. A logarithmic fit (red line) is applied to smooth the correction and interpolate between the discrete \pT points.'
+                    caption: 'The extracted slope $\\beta$ (or $p_1$) as a function of $\\pTtrue$ for a fixed $\\eta$ bin. A logarithmic fit (red line) is applied to smooth the correction and interpolate between the discrete $\\pT$ points.'
                 },
                 {
                     src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0_myfit_par1.png',
                     alt: 'Inclusive signal region ratio after fit',
-                    caption: 'Distribution (function, dependence) of the fitted slope parameter $p_1$ across the full detector occupancy ($\eta$ range). The red curve represents the final smoothed mapping used to derive the 1D residual pileup correction factors.'
+                    caption: 'Distribution (function, dependence) of the fitted slope parameter $p_{1}$ across the full detector occupancy ($\\eta$ range). The red curve represents the final smoothed mapping used to derive the 1D residual pileup correction factors.'
                 },
             ];
 
@@ -171,6 +173,7 @@
                     MathJax.typesetPromise([captionElement]).catch(function(err) {
                         console.log('MathJax error:', err);
                     });
+                    console.log('MathJax expression:', captionElement);
                 }
             };
 
