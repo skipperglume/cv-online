@@ -31,6 +31,11 @@
         nav li { display: inline; margin-right: 15px; }
         nav a { text-decoration: none; color: #333; font-weight: bold; }
         nav a:hover { text-decoration: underline; }
+        .carousel { margin-top: 12px; max-width: 520px; }
+        .carousel-image { width: 100%; border: 1px solid #999; }
+        .carousel-controls { margin-top: 8px; }
+        .carousel-controls button { padding: 4px 12px; margin-right: 8px; cursor: pointer; }
+        .carousel-caption { font-size: 0.9em; color: #666; margin-top: 8px; }
      </style>
 </head>
 
@@ -84,6 +89,15 @@
             <dt>Jet Definitions and MCJES</dt>
             <dd>
                 <h2>Deriving jet pT residual </h2>
+                <div class="carousel" id="mcjes-carousel">
+                    <img class="carousel-image" id="mcjes-carousel-image" src="images/ATLAS/jetdef/diff_eta_1_pt_10_zx8.png" alt="Two-dimensional distribution of the residual jet transverse momentum $\Delta \pT = \pTreco - \pTtrue$ as a function of $\mu$ " />
+                    <div class="carousel-controls">
+                        <button type="button" id="mcjes-prev">Previous</button>
+                        <button type="button" id="mcjes-next">Next</button>
+                        <span id="mcjes-index">1/5</span>
+                    </div>
+                    <p class="carousel-caption" id="mcjes-caption">Residual derivation workflow for MCJES.</p>
+                </div>
             </dd>
             
             <dd class="clear"></dd>
@@ -91,5 +105,66 @@
         
         <div class="clear"></div>
     </div>
+
+    <script type="text/javascript">
+        (function () {
+            var slides = [
+                {
+                    src: 'images/ATLAS/jetdef/diff_eta_1_pt_10_zx8.png',
+                    alt: 'Jet residual derivation scheme',
+                    caption: 'Two-dimensional distribution of the residual jet transverse momentum $\Delta \pT = \pTreco - \pTtrue$ as a function of $\mu$.'
+                },
+                {
+                    src: 'images/ATLAS/jetdef/diff_eta_8_pt_9_zx10_mean.png',
+                    alt: 'Inclusive signal region ratio before fit',
+                    caption: 'Inclusive signal region ratio before fit.'
+                },
+                {
+                    src: 'images/ATLAS/jetdef/diff_eta_14_pt_3_zx0_mean_myfit_par1.png',
+                    alt: 'Inclusive signal region ratio after fit',
+                    caption: 'Inclusive signal region ratio after fit.'
+                },
+                {
+                    src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0.png',
+                    alt: 'Inclusive signal region ratio after fit',
+                    caption: 'Inclusive signal region ratio after fit.'
+                },
+                {
+                    src: 'images/ATLAS/jetdef/diff_eta_0_pt_0_zx0_mean_myfit_par1_myfit_par0_myfit_par1.png',
+                    alt: 'Inclusive signal region ratio after fit',
+                    caption: 'Inclusive signal region ratio after fit.'
+                },
+            ];
+
+            var currentIndex = 0;
+            var imageElement = document.getElementById('mcjes-carousel-image');
+            var captionElement = document.getElementById('mcjes-caption');
+            var indexElement = document.getElementById('mcjes-index');
+            var prevButton = document.getElementById('mcjes-prev');
+            var nextButton = document.getElementById('mcjes-next');
+
+            if (!imageElement || !captionElement || !indexElement || !prevButton || !nextButton) {
+                return;
+            }
+
+            var renderSlide = function (index) {
+                var slide = slides[index];
+                imageElement.src = slide.src;
+                imageElement.alt = slide.alt;
+                captionElement.textContent = slide.caption;
+                indexElement.textContent = (index + 1) + '/' + slides.length;
+            };
+
+            prevButton.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                renderSlide(currentIndex);
+            });
+
+            nextButton.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % slides.length;
+                renderSlide(currentIndex);
+            });
+        }());
+    </script>
 </body>
 </html>
