@@ -39,7 +39,7 @@
         nav a { text-decoration: none; color: #333; font-weight: bold; }
         nav a:hover { text-decoration: underline; }
         .carousel { margin-top: 12px; max-width: 520px; }
-        .carousel-image { width: 100%; border: 1px solid #999; }
+        .carousel-image { width: 100%; height: 400px; object-fit: contain; border: 1px solid #999; }
         .carousel-controls { margin-top: 8px; }
         .carousel-controls button { padding: 4px 12px; margin-right: 8px; cursor: pointer; }
         .carousel-caption { font-size: 0.9em; color: black; margin-top: 8px; }
@@ -130,8 +130,17 @@
             <dd>
                 <h2>Optimization studies concerning forward jets and developing the framework involving Machine Learning transformer-based model </h2>
                 <img src="images/ATLAS/flowChart_SSML.png" alt="SSML Flow Chart" width="70%" />
-                <p>Framework flow chart describing the iterative process of ML optimization. </p>
+                <p>Framework flow chart describing the iterative process of ML optimization.  The task is to optimize Salt ML framework to achieve the best classifier for the $N_{\text{classes}}=4$: "tttt", "ttt", "ttV"  and "otherbkg". $N_{k\text{-folds}}=4$ is used to obtain statistically independent models, while preserving iteration speed.</p>
                 
+                <div class="carousel" id="ssml-carousel">
+                    <img class="carousel-image" id="ssml-carousel-image" src="images/ATLAS/SSML/def_fold0.png" alt="SSML Analysis Plots" />
+                    <div class="carousel-controls">
+                        <button type="button" id="ssml-prev">Previous</button>
+                        <button type="button" id="ssml-next">Next</button>
+                        <span id="ssml-index">1/7</span>
+                    </div>
+                    <p class="carousel-caption" id="ssml-caption"></p>
+                </div>
             </dd>
             
             <dd class="clear"></dd>
@@ -230,6 +239,80 @@
                 currentIndex = (currentIndex + 1) % slides.length;
                 renderSlide(currentIndex);
             });
+        }());
+
+        // SSML Carousel Handler
+        (function () {
+            var slides = [
+                {
+                    src: 'images/ATLAS/SSML/def_fold0.png',
+                    alt: 'Training and validation',
+                    caption: 'Training and validation loss for the fold 0 configuration. The model seems to converge after around 20 epochs, with a slight overfitting visible in the later epochs.'
+                },
+                {
+                    src: 'images/ATLAS/SSML/Diagram_Yield_SR.png',
+                    alt: 'Yield diagram signal region',
+                    caption: 'Yield diagram in the training region. Important for understanding the distribution of events across different categories and the balance between signal and background processes.'
+                },
+                {
+                    src: 'images/ATLAS/SSML/Diagram_Events_SR.png',
+                    alt: 'Events diagram signal region',
+                    caption: 'Events diagram in the training region. Important for understanding the distribution of events across different categories and the balance between signal and background processes.'
+                },
+                {
+                    src: 'images/ATLAS/SSML/confusion_matrix_weight.png',
+                    alt: 'Confusion matrix weighted',
+                    caption: 'Confusion matrix weighted - allows to access the performance of the model across different classes, taking into account class imbalances. It provides insights into which classes are being misclassified and how well the model is performing overall.'
+                },
+                {
+                    src: 'images/ATLAS/SSML/ROC_def_fold0_ptttt.png',
+                    alt: 'ROC curve fold 0',
+                    caption: 'ROC curve for the fold 0.'
+                },
+                {
+                    src: 'images/ATLAS/SSML/Score_G_test.png',
+                    alt: 'Model score distribution test',
+                    caption: 'Model score distribution test. The score is the ratio of the probability event is classified as tttt to the probability it is classified as ttV - best combination for the signal vs background separation.'
+                },
+                {
+                    src: 'images/ATLAS/SR_inclusive_log_tttt_over_ttV_postFit.png',
+                    alt: 'Inclusive signal region ratio postfit',
+                    caption: 'Inclusive signal region ratio postfit'
+                },
+            ];
+
+            var currentIndex = 0;
+            var imageElement = document.getElementById('ssml-carousel-image');
+            var captionElement = document.getElementById('ssml-caption');
+            var indexElement = document.getElementById('ssml-index');
+            var prevButton = document.getElementById('ssml-prev');
+            var nextButton = document.getElementById('ssml-next');
+
+            if (!imageElement || !captionElement || !indexElement || !prevButton || !nextButton) {
+                return;
+            }
+
+            var renderSlide = function (index) {
+                var slide = slides[index];
+                imageElement.src = slide.src;
+                imageElement.alt = slide.alt;
+                captionElement.innerHTML = '';
+                captionElement.textContent = slide.caption;
+                indexElement.textContent = (index + 1) + '/' + slides.length;
+            };
+
+            prevButton.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                renderSlide(currentIndex);
+            });
+
+            nextButton.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % slides.length;
+                renderSlide(currentIndex);
+            });
+
+            // Initialize the first slide
+            renderSlide(currentIndex);
         }());
     </script>
 </body>
