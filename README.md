@@ -27,3 +27,17 @@ https://pos.sissa.it/499/250/pdf
 
 
 https://breakthroughprize.org/Laureates/1/L3993
+
+
+
+https://docs.google.com/presentation/d/1ZjN7LepQT03r7G1SqzEhGqxQ37G8rduirjAHvqYHiq0/edit?slide=id.g3683afd2d86_0_10#slide=id.g3683afd2d86_0_10
+
+
+https://docs.google.com/presentation/d/1tOqit3isuWlP4k8rsiR9Oo4v9io0asOwDtr_Oz4-owY/edit?slide=id.g313da555143_56_4#slide=id.g313da555143_56_4
+
+
+https://docs.google.com/presentation/d/1_kXdfCUiInFTLfU2EZPxpf_QHpVd2Yzhw9qujTEtHrs/edit?slide=id.g2a176832802_0_61#slide=id.g2a176832802_0_61
+
+https://docs.google.com/presentation/d/1aEBU2uBQOl2Xr0gMgRM6P-05qzH6hxPWXB4Jp1veO04/edit?slide=id.g2ae162933e1_0_132#slide=id.g2ae162933e1_0_132
+
+https://docs.google.com/presentation/d/1CZHQyaF9TjUBZGihb-LIcInio-AYBOTwXFbMp9FWksI/edit?slide=id.g2b881c8019a_0_0#slide=id.g2b881c8019a_0_0
